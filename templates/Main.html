@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Face Mask Detection</title>
+
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='upload.css')}}">
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='Main.css')}}">
+  </head>
+  
+  <div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="nav-link" href="/">Back</a>
+        <a class="nav-link active" href="#Detection">Detection</a>
+        <a class="nav-link" href="#About">About</a>
+        <a class="nav-link" href="#Alogorithm">Algorithm</a>
+    </nav>
+</div>
+<section id="Detection">
+<bodyWork>
+  <body class="text-center">
+     <form class="form-upload" method=post enctype=multipart/form-data>
+      <h1 class="h3 mb-3 font-weight-normal"> UPLOAD IMAGE</h1>
+      <input  type="file" id="image" name="image" class="form-control" required autofocus>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Predict</button>
+      <br>
+      {% if image_loc %}
+        <img class="mb-4" src="static/{{image_loc}}" alt="" width="60%" height="60%">
+        <h3 class="h3 mb-3 font-weight-normal">Prediction: {{prediction}}</h3>
+      {%endif%}
+    </form>
+</body>
+</bodyWork>
+</section>
+
+
+
+<div id="About" class="bg-warning text-white my-2 py-2">
+    <div class="row">
+        <div class="col text-center mb-4">
+        <h1 class="display-3">About</h1>
+    </div></div>
+ <p class="lead text-white text-center mx-5 text-dark mb-4">
+    In the present scenario due to Covid-19, there is no efficient face mask detection applications which are now in high demand for transportation means, densely populated areas, residential districts, large-scale manufacturers and other enterprises to ensure safety. The model detects different types of face and head coverings and identifies whether a person is wearing a face mask or not.The model was trained on the top of Darknet implementation on 6000 images. The mean average precision of the model is 96.06%.The avg loss of the model is 3.8.
+        </p>
+</div>
+
+<div id="Alogorithm" class="bg-info text-white my-2 py-4">
+    <div class="row">
+        <div class="col text-center mb-4">
+        <h1 class="display-1">Algorithm</h1>
+    </div></div>
+ <p class="lead text-white mb-4 mx-5">
+    YOLO is developed by Joseph Redmon. The introduction of the YOLO real-time object recognition system in 2016 is the cornerstone of object recognition research. This led to better and faster Computer Vision algorithms.
+
+    YOLOv4’s architecture is composed of CSPDarknet53 as a backbone, spatial pyramid pooling additional module, PANet path-aggregation neck and YOLOv3 head.
+    <p  class="lead text-white mb-4 mx-5">
+    CSPDarknet53 is a novel backbone that can enhance the learning capability of CNN. The spatial pyramid pooling block is added over CSPDarknet53 to increase the receptive field and separate out the most significant context features. Instead of Feature pyramid networks (FPN) for object detection used in YOLOv3, the PANet is used as the method for parameter aggregation for different detector levels.
+</p>  </p>
+</div>
+
+    <section>
+        <footer>
+            <div class="footer-block">
+            <div class="container-fluid">
+            <div class="row">
+            
+            <div class="col-12 pt-2 mx-auto text-center bg-dark text-light">
+            
+            <h6> copyrights &copy; 2020</h6>
+            </div>
+            </div>
+            </div>
+            </div>
+            </footer>
+
+    </section>
+    
+
+
+ 
+</html>

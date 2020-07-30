@@ -8,7 +8,7 @@ import os
 
 import numpy as np
 
-from flask import Flask
+from flask import Flask,url_for
 from flask import request
 from flask import render_template
 
@@ -20,9 +20,12 @@ UPLOAD_FOLDER = "static/"
 DEVICE = "cpu"
 MODEL = None
 
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/upload", methods=["GET", "POST"])
 def upload_predict():
     if request.method == "POST":
         image_file = request.files["image"]
@@ -35,8 +38,8 @@ def upload_predict():
             #pred = predict(image_location, MODEL)[0]
             img = detect_cv2('cfg/yolo-obj.cfg', 'model.weights', image_location)
             pred = "Detection Results"
-            return render_template("index.html", prediction=pred, image_loc=image_file.filename)
-    return render_template("index.html", prediction=0, image_loc=None)
+            return render_template("Main.html", prediction=pred, image_loc=image_file.filename)
+    return render_template("Main.html", prediction=0, image_loc=None)
 
 
 if __name__ == "__main__":

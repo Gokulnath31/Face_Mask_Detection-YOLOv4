@@ -50,19 +50,14 @@ def detect_cv2_camera(cfgfile, weightfile):
     if use_cuda:
         m.cuda()
 
-    cap = cv2.VideoCapture(0)
-    # cap = cv2.VideoCapture("./test.mp4")
+    #cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("test.wmv")
     cap.set(3, 1280)
     cap.set(4, 720)
     print("Starting the YOLO loop...")
 
     num_classes = m.num_classes
-    if num_classes == 20:
-        namesfile = 'data/voc.names'
-    elif num_classes == 80:
-        namesfile = 'data/coco.names'
-    else:
-        namesfile = 'data/x.names'
+    namesfile = 'data/obj.names'
     class_names = load_class_names(namesfile)
 
     while True:
