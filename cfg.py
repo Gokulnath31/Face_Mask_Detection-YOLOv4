@@ -1,15 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
-@Time          : 2020/05/06 21:05
-@Author        : Tianxiaomo
-@File          : Cfg.py
-@Noice         :
-@Modificattion :
-    @Author    :
-    @Time      :
-    @Detail    :
 
-'''
 from easydict import EasyDict
 
 Cfg = EasyDict()
