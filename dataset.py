@@ -1,15 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
-@Time          : 2020/05/06 21:09
-@Author        : Tianxiaomo
-@File          : dataset.py
-@Noice         :
-@Modificattion :
-    @Author    :
-    @Time      :
-    @Detail    :
 
-'''
 from torch.utils.data.dataset import Dataset
 
 import random
